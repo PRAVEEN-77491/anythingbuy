@@ -1,7 +1,7 @@
 .signUp{
     margin: auto;
     text-align: center;
-    width: 30%;
+    width: 40%;
     height: 100vh;
 }
 
@@ -21,6 +21,10 @@
     outline: none;
 }
 
-.phoneNumber{
-    width: 100%;
+.signUp_Fname{
+    margin-right: 30px;
+}
+
+.signUp_name{
+    display: flex;
 }

@@ -74,6 +74,30 @@ function SignUp() {
             <h2>SignUp</h2>
         </div>
         <Box component='form' onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <div className='signUp_name'>
+                    <TextField
+                    variant='standard'
+                    margin='normal'
+                    required
+                    id='firstName'
+                    name='firstName'
+                    label= "First Name"
+                    InputProps={{
+                        className:"signUp_Fname"
+                    }}
+                    />
+                    <TextField
+                    variant='standard'
+                    margin='normal'
+                    required
+                    id='lastName'
+                    name='lastName'
+                    label= "Last Name"
+                    InputProps={{
+                        className:"signUp_Fname"
+                    }}
+                    />
+                </div>
             <div className='signUp_form'>
                 <TextField
                 variant='standard'
