@@ -1,0 +1,26 @@
+.signUp{
+    margin: auto;
+    text-align: center;
+    width: 30%;
+    height: 100vh;
+}
+
+.signUp_emailIcon{
+    color: gray;
+    margin-right: 10px;
+
+}
+
+.signUp_emailIcon > .MuiSvgIcon-root{
+    font-size: 5px;
+}
+
+.signUp_button{
+    margin-top: 15px;
+    border-radius: 20px;
+    outline: none;
+}
+
+.phoneNumber{
+    width: 100%;
+}
