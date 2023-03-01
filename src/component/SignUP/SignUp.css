@@ -22,9 +22,15 @@
 }
 
 .signUp_Fname{
-    margin-right: 30px;
+    margin-right: 15px;
 }
 
 .signUp_name{
     display: flex;
+}
+
+.phoneNumber{
+    border: 1px solid gray;
+    width: 100%;
+    
 }

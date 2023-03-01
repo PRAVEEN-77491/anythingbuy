@@ -94,7 +94,6 @@ function SignUp() {
                     name='lastName'
                     label= "Last Name"
                     InputProps={{
-                        className:"signUp_Fname"
                     }}
                     />
                 </div>
@@ -144,7 +143,7 @@ function SignUp() {
                 onChange = {showPasswordError}
                 />
 
-            <MuiPhoneNumber defaultCountry={'in'}  className="phoneNumber" style={{ outline:"none" }} />,
+            <MuiPhoneNumber defaultCountry={'in'}  className="phoneNumber" style={{ outline:"none", marginTop:"15px", marginBottom:"5px" }} />
 
             <Button
               type="submit"
