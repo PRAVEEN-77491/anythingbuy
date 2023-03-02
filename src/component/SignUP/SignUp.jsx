@@ -1,4 +1,6 @@
-
+import GoogleIcon from '@mui/icons-material/Google';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
 import React from 'react'
 import Box from '@mui/material/Box'
 import TextField from '@mui/material/TextField'
@@ -118,7 +120,7 @@ function SignUp() {
                 <TextField
                 type={showPassword? "text" : "password"}
                 variant='standard'
-                label='password'
+                label='Password'
                 inputRef={passRef}
                 error = {errors.passError === "Enter Password" ? true : false}
                 helperText={errors.passError}
@@ -149,12 +151,25 @@ function SignUp() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              disabled={(!errors.emailError && !errors.passError) ? false : true}
+              sx={{ mt: 5, mb: 2 }}
               style={{ outline:"none", borderRadius:20}}
               className="signUp_button"
             >
               SignUp
             </Button>
+            </div>
+            <h3 className='signUp_detail'>or signup using app you love:</h3>
+            <div className='signUp_apps'>
+                <IconButton style={{outline : "none"}}>
+                    <GoogleIcon className='signUp_appIcon' />
+                </IconButton>
+                <IconButton style={{outline : "none"}}>
+                    <FacebookIcon className='signUp_appIcon' />
+                </IconButton>
+                <IconButton style={{outline : "none"}}>
+                    <LinkedInIcon className='signUp_appIcon' />
+                </IconButton>
             </div>
         </Box>
         
