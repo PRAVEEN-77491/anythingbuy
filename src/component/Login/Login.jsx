@@ -30,7 +30,7 @@ function Login() {
     if(passRef.current.value.length<4){
         setErrors({...errors, passError:"Password must be long"});
     }
-    else if( !passRef.current.value.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,16}$/)     ){//passRef.current.value.length === 0){
+    else if( !passRef.current.value.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,16}$/)   ){
         setErrors({...errors, passError:"Password must contain a number,special character"});
     }
     else{
