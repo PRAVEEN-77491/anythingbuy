@@ -13,170 +13,174 @@ import { Button, IconButton, InputAdornment } from '@mui/material';
 import { useState } from 'react';
 import { useRef } from 'react';
 import MuiPhoneNumber from 'material-ui-phone-number';
-
+import { useGoogleLogin } from '@react-oauth/google';
 function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
 
     const emailRef = useRef('');
     const passRef = useRef('');
 
-    const [errors, setErrors] = useState({emailError:"", passError:""})
+    const [errors, setErrors] = useState({ emailError: "", passError: "" })
 
-    const handlePassword = () => 
+    const handlePassword = () =>
         setShowPassword(!showPassword);
 
-    const handleSubmit = (event) =>{
+    const handleSubmit = (event) => {
         event.preventDefault();
-        if(passRef.current.value.length<4){
-            setErrors({...errors, passError:"Password must be long"});
+        if (passRef.current.value.length < 4) {
+            setErrors({ ...errors, passError: "Password must be long" });
         }
-        else if( !passRef.current.value.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,16}$/)     ){//passRef.current.value.length === 0){
-            setErrors({...errors, passError:"Password must contain a number,special character"});
+        else if (!passRef.current.value.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,16}$/)) {//passRef.current.value.length === 0){
+            setErrors({ ...errors, passError: "Password must contain a number,special character" });
         }
-        else{
-        const data = new FormData(event.currentTarget);
+        else {
+            const data = new FormData(event.currentTarget);
             console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-          });
-        }  
-        } 
+                email: data.get('email'),
+                password: data.get('password'),
+            });
+        }
+    }
 
     const showEmailError = () => {
-        if(emailRef.current.value.length === 0){
-            setErrors({...errors, emailError:"Enter Email"});
+        if (emailRef.current.value.length === 0) {
+            setErrors({ ...errors, emailError: "Enter Email" });
         }
-        else if( !emailRef.current.value.match( /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
-            setErrors({...errors, emailError:"Invalid Format"});
+        else if (!emailRef.current.value.match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)) {
+            setErrors({ ...errors, emailError: "Invalid Format" });
         }
-        else{
-            setErrors({...errors, emailError:""});
+        else {
+            setErrors({ ...errors, emailError: "" });
         }
     }
 
     const showPasswordError = () => {
-        if( passRef.current.value.length === 0){
-            setErrors({...errors, passError:"Enter Password"});
+        if (passRef.current.value.length === 0) {
+            setErrors({ ...errors, passError: "Enter Password" });
         }
-        else if(passRef.current.value.length >= 8){
-            setErrors({...errors, passError:"Strong Password"});
+        else if (passRef.current.value.length >= 8) {
+            setErrors({ ...errors, passError: "Strong Password" });
         }
-        else if(passRef.current.value.length <= 4){
-            setErrors({...errors, passError:"Easy Password"});
+        else if (passRef.current.value.length <= 4) {
+            setErrors({ ...errors, passError: "Easy Password" });
         }
-        
-        else if(passRef.current.value.length >= 5){
-            setErrors({...errors, passError:"Moderate Password"});
+
+        else if (passRef.current.value.length >= 5) {
+            setErrors({ ...errors, passError: "Moderate Password" });
         }
     }
+
+    const login = useGoogleLogin({
+        onSuccess: tokenResponse => console.log(tokenResponse),
+      });
     
-  return (
-    <div className='signUp'>
-        <div className='signUp_heading'>
-            <h2>SignUp</h2>
-        </div>
-        <Box component='form' onSubmit={handleSubmit} sx={{ mt: 1 }}>
-            <div className='signUp_name'>
+
+    return (
+        <div className='signUp'>
+            <div className='signUp_heading'>
+                <h2>SignUp</h2>
+            </div>
+            <Box component='form' onSubmit={handleSubmit} sx={{ mt: 1 }}>
+                <div className='signUp_name'>
                     <TextField
-                    variant='standard'
-                    margin='normal'
-                    required
-                    id='firstName'
-                    name='firstName'
-                    label= "First Name"
-                    InputProps={{
-                        className:"signUp_Fname"
-                    }}
+                        variant='standard'
+                        margin='normal'
+                        required
+                        id='firstName'
+                        name='firstName'
+                        label="First Name"
+                        InputProps={{
+                            className: "signUp_Fname"
+                        }}
                     />
                     <TextField
-                    variant='standard'
-                    margin='normal'
-                    required
-                    id='lastName'
-                    name='lastName'
-                    label= "Last Name"
-                    InputProps={{
-                        className:"signUp_Lname"
-                    }}
+                        variant='standard'
+                        margin='normal'
+                        required
+                        id='lastName'
+                        name='lastName'
+                        label="Last Name"
+                        InputProps={{
+                            className: "signUp_Lname"
+                        }}
                     />
                 </div>
-            <div className='signUp_form'>
-                <TextField
-                variant='standard'
-                margin='normal'
-                required
-                fullWidth
-                id='email'
-                name='email'
-                autoFocus
-                error = {errors.emailError}
-                helperText={errors.emailError}
-                inputRef={emailRef}
-                label= 'Email'
-                InputProps={{
-                    startAdornment : <EmailOutlinedIcon className='signUp_emailIcon' style={{ fontSize: 18 }} />
-                }}
-                onChange = {showEmailError}
-                />
-                <TextField
-                type={showPassword? "text" : "password"}
-                variant='standard'
-                label='Password'
-                inputRef={passRef}
-                error = {errors.passError === "Enter Password" ? true : false}
-                helperText={errors.passError}
-                id='password'
-                name='password'
-                margin='normal'
-                fullWidth
-                required
-                InputProps={{
-                    startAdornment : <KeyOutlinedIcon className='signUp_emailIcon' style={{ fontSize: 18 }}  />,
-                    endAdornment : (
-                        <InputAdornment position='end' >
-                            <IconButton onClick={handlePassword}  style={{ outline:"none" }} >
-                                {
-                                    showPassword ? <VisibilityOff className='signUp_emailIcon' style={{ fontSize: 18, marginLeft:"7" }} />  
-                                    : <Visibility className='signUp_emailIcon' style={{ fontSize: 18,  marginLeft:"7" }} />
-                                }
-                            </IconButton>
-                        </InputAdornment>
-                    )
-                }}
-                onChange = {showPasswordError}
-                />
+                <div className='signUp_form'>
+                    <TextField
+                        variant='standard'
+                        margin='normal'
+                        required
+                        fullWidth
+                        id='email'
+                        name='email'
+                        autoFocus
+                        error={errors.emailError.length === 0 ? false : true}
+                        helperText={errors.emailError}
+                        inputRef={emailRef}
+                        label='Email'
+                        InputProps={{
+                            startAdornment: <EmailOutlinedIcon className='signUp_emailIcon' style={{ fontSize: 18 }} />
+                        }}
+                        onChange={showEmailError}
+                    />
+                    <TextField
+                        type={showPassword ? "text" : "password"}
+                        variant='standard'
+                        label='Password'
+                        inputRef={passRef}
+                        error={errors.passError === "Enter Password" ? true : false}
+                        helperText={errors.passError}
+                        id='password'
+                        name='password'
+                        margin='normal'
+                        fullWidth
+                        required
+                        InputProps={{
+                            startAdornment: <KeyOutlinedIcon className='signUp_emailIcon' style={{ fontSize: 18 }} />,
+                            endAdornment: (
+                                <InputAdornment position='end' >
+                                    <IconButton onClick={handlePassword} style={{ outline: "none" }} >
+                                        {
+                                            showPassword ? <VisibilityOff className='signUp_emailIcon' style={{ fontSize: 18, marginLeft: "7" }} />
+                                                : <Visibility className='signUp_emailIcon' style={{ fontSize: 18, marginLeft: "7" }} />
+                                        }
+                                    </IconButton>
+                                </InputAdornment>
+                            )
+                        }}
+                        onChange={showPasswordError}
+                    />
 
-            <MuiPhoneNumber defaultCountry={'in'}  className="phoneNumber" style={{ outline:"none", marginTop:"15px", marginBottom:"5px" }} />
+                    <MuiPhoneNumber defaultCountry={'in'} className="phoneNumber" style={{ outline: "none", marginTop: "15px", marginBottom: "5px" }} />
 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              disabled={(!errors.emailError && !errors.passError) ? false : true}
-              sx={{ mt: 5, mb: 2 }}
-              style={{ outline:"none", borderRadius:20}}
-              className="signUp_button"
-            >
-              SignUp
-            </Button>
-            </div>
-            <h3 className='signUp_detail'>or signup using app you love:</h3>
-            <div className='signUp_apps'>
-                <IconButton style={{outline : "none"}}>
-                    <GoogleIcon className='signUp_appIcon' />
-                </IconButton>
-                <IconButton style={{outline : "none"}}>
-                    <FacebookIcon className='signUp_appIcon' />
-                </IconButton>
-                <IconButton style={{outline : "none"}}>
-                    <LinkedInIcon className='signUp_appIcon' />
-                </IconButton>
-            </div>
-        </Box>
-        
-
-    </div>
-  )
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        disabled={(!errors.emailError && !errors.passError) ? false : true}
+                        sx={{ mt: 5, mb: 2 }}
+                        style={{ outline: "none", borderRadius: 20 }}
+                        className="signUp_button"
+                    >
+                        SignUp
+                    </Button>
+                </div>
+                <h3 className='signUp_detail'>or signup using app you love:</h3>
+                <div className='signUp_apps'>
+                    <IconButton style={{ outline: "none" }} onClick={() => login()}>
+                        <GoogleIcon className='signUp_appIcon' />
+                    </IconButton>
+                    <IconButton style={{ outline: "none" }}>
+                        <FacebookIcon className='signUp_appIcon' />
+                    </IconButton>
+                    <IconButton style={{ outline: "none" }}>
+                        <LinkedInIcon className='signUp_appIcon' />
+                    </IconButton>
+                </div>
+            </Box>
+            
+        </div>
+    )
 }
 
 

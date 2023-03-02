@@ -13,10 +13,12 @@
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.11",
     "@mui/material": "^5.11.11",
+    "@react-oauth/google": "^0.8.0",
     "material-ui-phone-number": "^3.0.0",
     "mui-one-time-password-input": "^1.0.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-google-login": "^5.2.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
