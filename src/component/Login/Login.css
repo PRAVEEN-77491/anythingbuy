@@ -1,11 +1,9 @@
 
 .login{
-    border: 1px solid lightgreen; 
     height: auto;
     margin:auto;
-    width: 100%;
+    width: 30%;
     padding: 30px;
-    background-color: whitesmoke;
     border-radius: 10px;
 }
 
@@ -45,17 +43,25 @@
 
 .login_connection {
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 
 }
 .login_connIcons    {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 16px 30% 0% 10%;
+    margin: auto;
+    width: 60%;
 
 }
 
 .Icon{
     font-size: 20px;
     outline: none;
+}
+
+.login_signLink{
+    text-align: center;
+    margin-top: 20px;
 }
