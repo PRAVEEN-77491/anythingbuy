@@ -1,7 +1,51 @@
 .otp_page{
     width: 30%;
-    border: 1px solid red;
     height: auto;
+    margin: auto;
+    padding: 30px;
+    margin-top: 70px;
+}
+
+.otp_header{
     text-align: center;
+}
+
+.otp_header >h1 {
+    font-size: 25px;
+    font-weight: 590;
+    margin-bottom: 25px;
+}
+
+.otp_des{
+    text-align: center;
+    background-color: rgb(194, 243, 194);
+    color: rgb(112, 199, 112);
+    padding: 20px;
+    border-radius: 20px;
+    margin: auto;
+    width: 50%;
+}
+
+.otp_code{
+    margin:30px 0 10px 0 ;
+}
+
+.otp_input{
+    margin-top: 30px !important;
+    margin-bottom: 20px !important;
+    width: 50%;
+    margin: auto;
+    
+}
+
+.otp_notRec{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.otp_button{
+    text-align: center;
+  
 }
 
