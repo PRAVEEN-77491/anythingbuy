@@ -9,6 +9,7 @@ specifiers:
   '@types/react-dom': ^18.0.10
   '@vitejs/plugin-react': ^3.1.0
   material-ui-phone-number: ^3.0.0
+  mui-one-time-password-input: ^1.0.4
   react: ^18.2.0
   react-dom: ^18.2.0
   vite: ^4.1.0
@@ -19,6 +20,7 @@ dependencies:
   '@mui/icons-material': 5.11.11_h5fh5ntwxtyr677wxvzgewjsma
   '@mui/material': 5.11.11_xqeqsl5kvjjtyxwyi3jhw3yuli
   material-ui-phone-number: 3.0.0_igc4uct3vur6mnmpd3oer3xfp4
+  mui-one-time-password-input: 1.0.4_gyxidxyv3rk32gbfkthfb2r3tm
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -1120,6 +1122,27 @@ packages:
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
     dev: true
+
+  /mui-one-time-password-input/1.0.4_gyxidxyv3rk32gbfkthfb2r3tm:
+    resolution: {integrity: sha512-fq6vNtTvMsijFCicW76EfanDOyKyjTkz7om+590y7ridWg1zXroWwCObtFwHIkCRNmgNRAlcyykzvpM8ccEOhQ==}
+    peerDependencies:
+      '@emotion/react': ^11.5.0
+      '@emotion/styled': ^11.3.0
+      '@mui/material': ^5.0.0
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@emotion/react': 11.10.6_pmekkgnqduwlme35zpnqhenc34
+      '@emotion/styled': 11.10.6_oouaibmszuch5k64ms7uxp2aia
+      '@mui/material': 5.11.11_xqeqsl5kvjjtyxwyi3jhw3yuli
+      '@types/react': 18.0.28
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /nanoid/3.3.4:
     resolution: {integrity: sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==}
