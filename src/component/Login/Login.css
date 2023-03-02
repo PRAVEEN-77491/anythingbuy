@@ -1,10 +1,9 @@
 
 .login{
     border: 1px solid lightgreen; 
-    
     height: auto;
     margin:auto;
-    width: 30%;
+    width: 100%;
     padding: 30px;
     background-color: whitesmoke;
     border-radius: 10px;
@@ -36,7 +35,9 @@
     text-decoration: underline;
 }
 
-.login_field > button{
+.login_button {
+    margin-top: 15px;
+    outline: none;
     border-radius: 20px;
     background-color: lightgreen;
     margin-bottom: 16px;
@@ -50,7 +51,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 16px 70px 0 70px;
+    margin: 16px 30% 0% 10%;
 
 }
 

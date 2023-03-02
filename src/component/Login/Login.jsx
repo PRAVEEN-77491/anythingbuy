@@ -13,15 +13,68 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 
 import "./Login.css";
 import { useState } from "react";
+import { useRef } from "react";
+import { Button } from "@mui/material";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
+
+  const emailRef = useRef('');
+  const passRef = useRef('');
+
+  const [errors, setErrors] = useState({emailError:"", passError:""})
+
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    if(passRef.current.value.length<4){
+        setErrors({...errors, passError:"Password must be long"});
+    }
+    else if( !passRef.current.value.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{4,16}$/)     ){//passRef.current.value.length === 0){
+        setErrors({...errors, passError:"Password must contain a number,special character"});
+    }
+    else{
+    const data = new FormData(event.currentTarget);
+        console.log({
+        email: data.get('email'),
+        password: data.get('password'),
+      });
+    }  
+    } 
+
+const showEmailError = () => {
+    if(emailRef.current.value.length === 0){
+        setErrors({...errors, emailError:"Enter Email"});
+    }
+    else if( !emailRef.current.value.match( /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)){
+        setErrors({...errors, emailError:"Invalid Format"});
+    }
+    else{
+        setErrors({...errors, emailError:""});
+    }
+}
+
+const showPasswordError = () => {
+    if( passRef.current.value.length === 0){
+        setErrors({...errors, passError:"Enter Password"});
+    }
+    else if(passRef.current.value.length >= 8){
+        setErrors({...errors, passError:"Strong Password"});
+    }
+    else if(passRef.current.value.length <= 4){
+        setErrors({...errors, passError:"Easy Password"});
+    }
+    
+    else if(passRef.current.value.length >= 5){
+        setErrors({...errors, passError:"Moderate Password"});
+    }
+}
+
   return (
     <div className="login">
       <h2 className="login_heading">Login </h2>
 
-      <Box component="form">
+      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }} >
         <div className="login_field">
           <TextField
             variant="standard"
@@ -32,8 +85,11 @@ function Login() {
             name="Email"
             autoComplete="Email"
             autoFocus
-            helperText="Incorrect Email"
-            placeholder="Email"
+            error = {errors.emailError}
+            helperText={errors.emailError}
+            inputRef={emailRef}
+            label= 'Email'
+            onChange = {showEmailError}
             InputProps={{
               startAdornment: <MailOutlineIcon style={{ color: "gray" , marginRight: "10px" }}/>,
               disableUnderline: false,
@@ -50,8 +106,10 @@ function Login() {
             name="Password"
             autoComplete="Password"
             autoFocus
-            helperText="Incorrect Password"
-            placeholder="Password"
+            inputRef={passRef}
+            error = {errors.passError === "Enter Password" ? true : false}
+            helperText={errors.passError}
+            onChange = {showPasswordError}
             InputProps={{
               startAdornment: <KeyOutlinedIcon style={{ color: "gray" , marginRight: "10px" }} />,
               endAdornment: (
@@ -73,7 +131,16 @@ function Login() {
             </a>
           </div>
 
-          <button type="submit">Sign In</button>
+          <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              style={{ outline:"none", borderRadius:20}}
+              className="login_button"
+            >
+              Login
+            </Button>
 
           <div className="login_connection">
             <span> or Sign in with: </span>
