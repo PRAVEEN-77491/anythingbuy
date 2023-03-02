@@ -1,7 +1,7 @@
 .signUp{
     margin: auto;
     text-align: center;
-    width: 40%;
+    width: 30%;
     height: 100vh;
 }
 
@@ -17,11 +17,19 @@
 
 
 .signUp_Fname{
-    margin-right: 15px;
+    width: 95%;
+}
+.signUp_Lname{
+    width: 100%;
+    position: absolute;
+
+
 }
 
 .signUp_name{
     display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .phoneNumber{

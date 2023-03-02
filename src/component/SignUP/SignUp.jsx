@@ -96,6 +96,7 @@ function SignUp() {
                     name='lastName'
                     label= "Last Name"
                     InputProps={{
+                        className:"signUp_Lname"
                     }}
                     />
                 </div>
