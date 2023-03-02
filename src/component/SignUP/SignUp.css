@@ -15,11 +15,6 @@
     font-size: 5px;
 }
 
-.signUp_button{
-    margin-top: 15px;
-    border-radius: 20px;
-    outline: none;
-}
 
 .signUp_Fname{
     margin-right: 15px;
@@ -34,3 +29,22 @@
     width: 100%;
     
 }
+
+.signUp_detail{
+    font-size: 12px;
+    margin-top: -1px;
+}
+
+.signUp_apps{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 5px;
+}
+.signUp_appIcon{
+    color: black;
+    outline: none;
+}
+
