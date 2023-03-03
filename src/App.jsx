@@ -9,7 +9,6 @@ function App() {
   
   return (
     <div className="App">
-<<<<<<< HEAD
         <Router>
           <Routes>
             <Route path='/' element={<Login />} />
@@ -17,9 +16,7 @@ function App() {
             <Route path='/otp' element={<OtpPage />} />
           </Routes>
         </Router>
-=======
-        <Login />
->>>>>>> e19adb63088831a74c3e14b4b0784234fef40df0
+
     </div>
   )
 }
