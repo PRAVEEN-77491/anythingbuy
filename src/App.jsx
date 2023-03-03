@@ -16,7 +16,10 @@ function App() {
             <Route path='/otp' element={<OtpPage />} />
           </Routes>
         </Router>
+<<<<<<< HEAD
 
+=======
+>>>>>>> ebf931fe114216867b1c7c45092c81cb41060ee8
     </div>
   )
 }
