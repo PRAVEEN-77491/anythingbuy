@@ -15,6 +15,7 @@ import "./Login.css";
 import { useState } from "react";
 import { useRef } from "react";
 import { Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -162,7 +163,7 @@ const showPasswordError = () => {
           </div>
 
             <div className="login_signLink">
-              <p> New to AnythingBuy?  <a href="#">SignUp</a> </p>
+              <p> New to AnythingBuy?  <Link to="/signUp">SignUp</Link></p>
             </div>
 
         </div>
