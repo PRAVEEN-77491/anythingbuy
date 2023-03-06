@@ -41,7 +41,9 @@
 
 .signUp_detail{
     font-size: 12px;
-    margin-top: -1px;
+    font-weight: 400;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .signUp_apps{

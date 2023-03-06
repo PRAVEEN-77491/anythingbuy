@@ -19,8 +19,10 @@ function SignUp() {
 
     const emailRef = useRef('');
     const passRef = useRef('');
+    const firstNameRef =useRef('');
+    const lastNameRef = useRef('');
 
-    const [errors, setErrors] = useState({ emailError: "", passError: "" })
+    const [errors, setErrors] = useState({ emailError: "", passError: ""  ,firstNameError:'' , lastNameError:''})
 
     const handlePassword = () =>
         setShowPassword(!showPassword);
@@ -36,13 +38,29 @@ function SignUp() {
         else {
             const data = new FormData(event.currentTarget);
             console.log({
+                firstname: data.get('firstName'),
+                lastname: data.get('lastName'),
                 email: data.get('email'),
                 password: data.get('password'),
             });
         }
     }
 
+    const showFirstNameError = () => {
+        console.log("hello")
+        if (firstNameRef.current.value.length === 0) {
+            setErrors({ ...errors, firstNameError: "Enter FirstName" });
+        }
+    }
+
+    const showLastNameError = () => {
+        if (lastNameRef.current.value.length === 0) {
+            setErrors({ ...errors, lastNameError: "Enter LastName" });
+        }
+    }
+
     const showEmailError = () => {
+
         if (emailRef.current.value.length === 0) {
             setErrors({ ...errors, emailError: "Enter Email" });
         }
@@ -86,9 +104,13 @@ function SignUp() {
                         variant='standard'
                         margin='normal'
                         required
+                        autoFocus
                         id='firstName'
                         name='firstName'
+                        error={errors.firstNameError.length === 0 ? false : true}
+                        helperText={errors.firstNameError}
                         label="First Name"
+                        onChange={showFirstNameError}
                         InputProps={{
                             className: "signUp_Fname"
                         }}
@@ -99,7 +121,10 @@ function SignUp() {
                         required
                         id='lastName'
                         name='lastName'
+                        error={errors.lastNameError.length === 0 ? false : true}
+                        helperText={errors.lastNameError}
                         label="Last Name"
+                        onChange={showLastNameError}
                         InputProps={{
                             className: "signUp_Lname"
                         }}
@@ -113,11 +138,11 @@ function SignUp() {
                         fullWidth
                         id='email'
                         name='email'
-                        autoFocus
                         error={errors.emailError.length === 0 ? false : true}
                         helperText={errors.emailError}
                         inputRef={emailRef}
                         label='Email'
+
                         InputProps={{
                             startAdornment: <EmailOutlinedIcon className='signUp_emailIcon' style={{ fontSize: 18 }} />
                         }}
@@ -157,7 +182,7 @@ function SignUp() {
                         type="submit"
                         fullWidth
                         variant="contained"
-                        disabled={(!errors.emailError && !errors.passError) ? false : true}
+                        disabled={(!errors.emailError && !errors.passError && !errors.firstname ) ? false : true}
                         sx={{ mt: 5, mb: 2 }}
                         style={{ outline: "none", borderRadius: 20 }}
                         className="signUp_button"

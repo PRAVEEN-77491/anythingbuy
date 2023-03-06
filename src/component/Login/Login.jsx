@@ -59,16 +59,6 @@ const showPasswordError = () => {
     if( passRef.current.value.length === 0){
         setErrors({...errors, passError:"Enter Password"});
     }
-    else if(passRef.current.value.length >= 8){
-        setErrors({...errors, passError:"Strong Password"});
-    }
-    else if(passRef.current.value.length <= 4){
-        setErrors({...errors, passError:"Easy Password"});
-    }
-    
-    else if(passRef.current.value.length >= 5){
-        setErrors({...errors, passError:"Moderate Password"});
-    }
 }
 
   return (
@@ -106,7 +96,6 @@ const showPasswordError = () => {
             id="Password"
             name="Password"
             autoComplete="Password"
-            autoFocus
             inputRef={passRef}
             error = {errors.passError === "Enter Password" ? true : false}
             helperText={errors.passError}
@@ -127,9 +116,7 @@ const showPasswordError = () => {
             }}
           />
           <div className="login_forgot_comp">
-            <a href="#" className="login_forgot">
-              I forgot my password
-            </a>
+          <Link to="forgotPassword">I forgot my password</Link>
           </div>
 
           <Button
@@ -138,7 +125,6 @@ const showPasswordError = () => {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               style={{ outline:"none", borderRadius:20}}
-              className="login_button"
             >
               Login
             </Button>
