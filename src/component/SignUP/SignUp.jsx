@@ -14,6 +14,9 @@ import { useState } from 'react';
 import { useRef } from 'react';
 import MuiPhoneNumber from 'material-ui-phone-number';
 import { useGoogleLogin } from '@react-oauth/google';
+import FacebookButton from './FacebookButton';
+import { useLinkedIn } from 'react-linkedin-login-oauth2';
+
 function SignUp() {
     const [showPassword, setShowPassword] = useState(false);
 
@@ -69,11 +72,37 @@ function SignUp() {
             setErrors({ ...errors, passError: "Moderate Password" });
         }
     }
-
+//google Login
     const login = useGoogleLogin({
         onSuccess: tokenResponse => console.log(tokenResponse),
       });
-    
+      
+//facebook Login
+
+      const [user, setUser] = useState(null);
+
+  const handleLoginSuccess = (response) => {
+    // Set user state when login is successful
+    setUser(response);
+  };
+
+  const handleLoginFailure = (error) => {
+    // Handle login failure
+    console.error(error);
+  };
+
+  //linked in login
+  const { linkedInLogin } = useLinkedIn({
+    clientId: '86vhj2q7ukf83q',
+    redirectUri: `${window.location.origin}/linkedin`, // for Next.js, you can use `${typeof window === 'object' && window.location.origin}/linkedin`
+    onSuccess: (code) => {
+      console.log(code);
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+
 
     return (
         <div className='signUp'>
@@ -173,7 +202,7 @@ function SignUp() {
                     <IconButton style={{ outline: "none" }}>
                         <FacebookIcon className='signUp_appIcon' />
                     </IconButton>
-                    <IconButton style={{ outline: "none" }}>
+                    <IconButton style={{ outline: "none" }} onClick={linkedInLogin} >
                         <LinkedInIcon className='signUp_appIcon' />
                     </IconButton>
                 </div>

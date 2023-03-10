@@ -16,6 +16,7 @@ import { useState } from "react";
 import { useRef } from "react";
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useGoogleLogin } from "@react-oauth/google";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -70,6 +71,12 @@ const showPasswordError = () => {
         setErrors({...errors, passError:"Moderate Password"});
     }
 }
+
+//google Login
+const login = useGoogleLogin({
+  onSuccess: tokenResponse => console.log(tokenResponse),
+});
+
 
   return (
     <div className="login">
@@ -127,9 +134,8 @@ const showPasswordError = () => {
             }}
           />
           <div className="login_forgot_comp">
-            <a href="#" className="login_forgot">
-              I forgot my password
-            </a>
+          <Link to="/otp" className="login_forgot" > I forgot my password</Link>
+            
           </div>
 
           <Button
@@ -148,7 +154,7 @@ const showPasswordError = () => {
           </div>
 
           <div className="login_connIcons">
-            <IconButton className="Icon">
+            <IconButton className="Icon"  onClick={() => login()}>
               <GoogleIcon />
             </IconButton>
 

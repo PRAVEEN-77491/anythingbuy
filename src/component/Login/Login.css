@@ -65,3 +65,8 @@
     text-align: center;
     margin-top: 20px;
 }
+
+.login_connIcons{
+    padding-left: 20%;
+    padding-right: 20%;
+}

@@ -6,6 +6,12 @@
     height: 100vh;
 }
 
+.signUp_heading{
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
 .signUp_emailIcon{
     color: gray;
     margin-right: 10px;
@@ -50,10 +56,9 @@
     align-items: center;
     padding-left: 20%;
     padding-right: 20%;
-    padding-top: 5px;
+    padding-top: 20px;
 }
 .signUp_appIcon{
-    color: black;
     outline: none;
 }
 

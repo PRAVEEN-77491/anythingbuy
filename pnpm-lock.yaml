@@ -13,8 +13,12 @@ specifiers:
   mui-one-time-password-input: ^1.0.4
   react: ^18.2.0
   react-dom: ^18.2.0
+  react-facebook-login: ^4.1.1
   react-google-login: ^5.2.2
+  react-linkedin-login-oauth2: ^2.0.1
   react-router-dom: ^6.8.2
+  react-social-login-buttons: ^3.6.1
+  reactjs-social-login: ^2.6.2
   vite: ^4.1.0
 
 dependencies:
@@ -27,8 +31,12 @@ dependencies:
   mui-one-time-password-input: 1.0.4_gyxidxyv3rk32gbfkthfb2r3tm
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-facebook-login: 4.1.1_react@18.2.0
   react-google-login: 5.2.2_biqbaboplfbrettd7655fr4n2y
+  react-linkedin-login-oauth2: 2.0.1_biqbaboplfbrettd7655fr4n2y
   react-router-dom: 6.8.2_biqbaboplfbrettd7655fr4n2y
+  react-social-login-buttons: 3.6.1_react@18.2.0
+  reactjs-social-login: 2.6.2_biqbaboplfbrettd7655fr4n2y
 
 devDependencies:
   '@types/react': 18.0.28
@@ -1236,6 +1244,14 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-facebook-login/4.1.1_react@18.2.0:
+    resolution: {integrity: sha512-COnHEHlYGTKipz4963safFAK9PaNTcCiXfPXMS/yxo8El+/AJL5ye8kMJf23lKSSGGPgqFQuInskIHVqGqTvSw==}
+    peerDependencies:
+      react: ^16.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-google-login/5.2.2_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-JUngfvaSMcOuV0lFff7+SzJ2qviuNMQdqlsDJkUM145xkGPVIfqWXq9Ui+2Dr6jdJWH5KYdynz9+4CzKjI5u6g==}
     deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
@@ -1255,6 +1271,16 @@ packages:
 
   /react-is/18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
+    dev: false
+
+  /react-linkedin-login-oauth2/2.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-vlmChbRhLjWZVU/A96I09GcpH3xLFTawQbT/05Dl3kuLVupdaVo7YZf2qrDQmrdfDm4Qj8svX1gkwHkybAMKDg==}
+    peerDependencies:
+      react: 16.x || 17.x || 18.x
+      react-dom: 16.x || 17.x || 18.x
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /react-refresh/0.14.0:
@@ -1285,6 +1311,14 @@ packages:
       react: 18.2.0
     dev: false
 
+  /react-social-login-buttons/3.6.1_react@18.2.0:
+    resolution: {integrity: sha512-DIz30W+C147s7wxwt8zgwjx5pE+gTJwtUzTNKpKZO3bEY06eLjcY1zvZ8h35hQd1Yjd7b4rLkeuZBwlLURYIfg==}
+    peerDependencies:
+      react: ^15.0.0 || ^16.0.0 || ^17.x || ^18.x
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-transition-group/4.4.5_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
     peerDependencies:
@@ -1304,6 +1338,17 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: false
+
+  /reactjs-social-login/2.6.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-7ngl3qMbnRkXJznsdd/fwCXLwE1wBpeLhaAZJlZF0Wki7tl9nwFL191t+uopZkSBnWuHRCBhmOGgT/y9KVSJAg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /regenerator-runtime/0.13.11:
