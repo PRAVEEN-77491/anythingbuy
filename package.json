@@ -20,10 +20,15 @@
     "react-dom": "^18.2.0",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.2.2",
+<<<<<<< HEAD
     "react-linkedin-login-oauth2": "^2.0.1",
     "react-router-dom": "^6.8.2",
     "react-social-login-buttons": "^3.6.1",
     "reactjs-social-login": "^2.6.2"
+=======
+    "react-router-dom": "^6.8.2",
+    "twilio": "^4.8.0"
+>>>>>>> 19414f964fd40186add78760fb4b1c2ce8cc1a73
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

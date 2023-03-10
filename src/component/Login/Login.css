@@ -33,13 +33,7 @@
     text-decoration: underline;
 }
 
-.login_button {
-    margin-top: 15px;
-    outline: none;
-    border-radius: 20px;
-    background-color: lightgreen;
-    margin-bottom: 16px;
-}
+
 
 .login_connection {
     text-align: center;
